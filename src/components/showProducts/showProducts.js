@@ -2,7 +2,8 @@ import { async } from "@firebase/util";
 import { collection, doc, getDocs } from "firebase/firestore";
 import React, { useState, useEffect } from "react";
 import { db } from "../../../core/config";
-import { Text } from "react-native";
+import { Text,TouchableHighlight } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
 import {
   Center,
   ScrollView,
@@ -11,11 +12,12 @@ import {
   VStack,
   Spinner,
   View,
+  Box
 } from "native-base";
 import { styles } from "./style";
 import { Icon } from "react-native-elements";
 
-const showProducts = () => {
+const showProducts = ({navigation}) => {
   const [products, setProduct] = useState([]);
   const getProduct = () => {
     const productRef = collection(db, "Products");
@@ -36,35 +38,47 @@ const showProducts = () => {
   }, []);
 
   return (
-    // <View>
-    //   <FlatList
-    //   data={products}
-    //   renderItem={({item})=>{
-    //     <Image source={{
-    //       uri: `${item.Image}`
-    //     }} alt="Alternate Text" size="xl" />
-    //   }}
-    //    >
-
-    //   </FlatList>
-    // </View>
-    <View style={styles.container}>
-      {console.log(products)}
+        
+     <Center>
       <FlatList
+       numColumns={2}
+       style={styles.main}
         data={products}
         renderItem={({ item }) => (
-          <>
-            <Text style={styles.item}>{item.Name}</Text>
-            <View style={styles.imgView}>
-              <Image
-                source={{ uri: item.Image }}
-                style={styles.innerImage}
+          <TouchableHighlight
+          onPress={()=>{
+            navigation.navigate('details',{
+                id:item.id,
+                img:item.Image,
+               ...item,
+        
+            })
+        }}
+          >
+          <Box style={styles.prod}>
+            <View style={styles.flow}>
+              <Icon
+                name="star-outline"
+                type="ionicon"
+                style={styles.font}
+                size={23}
+                color={"#fcca03"}
               />
             </View>
-          </>
+            <Image
+                source={{ uri: item.Image }}
+                style={styles.img}
+              />
+                <Text style={styles.title}>{item.Name}</Text>
+                <View style={styles.rates}>
+              <Text style={styles.price}>{`Price: ${item.Price} EGP`}</Text>
+            </View>
+            </Box>
+                    </TouchableHighlight>
         )}
       />
-    </View>
+      </Center>
+ 
   );
 };
 
