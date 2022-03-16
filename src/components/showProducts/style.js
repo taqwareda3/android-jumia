@@ -1,10 +1,31 @@
-import { StyleSheet } from "react-native";
+import { Dimensions, StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create(
     {
+        textinput:{
+          height:20,
+          borderWidth:1,
+         width:100,
+          marginTop:20,
+          borderColor:'#ffac1c',
+          backgroundColor:'white' 
+        },
+        listTab:{
+            flex:1,
+           backgroundColor:'#ffac1c',
+          
+        },
+        btnTab:{
+       width:Dimensions.get('window').width/3.5,
+       flexDirection:'row',
+       borderWidth:0.5,
+       borderColor:'#ffac1c',
+       justifyContent:'center'
+        },
         img:{
             width:100,
             height:100,
+            
         },
         prod:{
             borderRadius:4,
@@ -17,6 +38,7 @@ export const styles = StyleSheet.create(
         main:{
             backgroundColor:'#f3f3f3',
             paddingHorizontal:'1%',
+            
         },
         title:{
             
@@ -84,6 +106,10 @@ export const styles = StyleSheet.create(
         inrTitle:{
             fontSize:20,
             fontWeight:'bold'
+        },
+        addbtn:{
+            backgroundColor:'#ffac1c',
+            color:'#fff'
         }
      
     }
