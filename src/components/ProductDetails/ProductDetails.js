@@ -15,15 +15,16 @@ const Details = ({ route, navigation }) => {
 
           const data = {
 
-               "name": Name,
-
-               "img": img,
-
-               "price": Price,
-
+               "Name": Name,
+               "Image": img,
+               "Price": Price,
+               "Category":Category,
+               "Quantity":Quantity,
                " Description": Description,
+               "subtotal": 1,
+               "id":id
 
-               "subTotal": 1
+               
 
           }
           const mt = collection(db, "users/5xKF4exe3kpuSXTS4lc4/cart")

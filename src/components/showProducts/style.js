@@ -110,6 +110,10 @@ export const styles = StyleSheet.create(
         addbtn:{
             backgroundColor:'#ffac1c',
             color:'#fff'
+        },
+        brdr:{
+            borderBottomWidth:15,
+            borderColor:'#ffac1c'
         }
      
     }

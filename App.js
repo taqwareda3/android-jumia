@@ -1,6 +1,6 @@
 import React from "react";
 import ShowProducts from "./src/components/showProducts/showProducts";
-import { NativeBaseProvider, Box } from "native-base";
+import { NativeBaseProvider, Box, Button } from "native-base";
 import { styles } from "./src/components/showProducts/style";
 import { NavigationContainer } from "@react-navigation/native";
 import Details from "./src/components/ProductDetails/ProductDetails";
@@ -16,26 +16,27 @@ export default function App() {
 
     <NativeBaseProvider>
       <NavigationContainer>
-        {/* <Stack.Navigator
+        <Stack.Navigator
           activeColor="#f0edf6"
           inactiveColor="#3e2465"
           barStyle={{ backgroundColor: "#694fad" }}
           initialRouteName="Jumia home" screenOptions={{
             headerTitleStyle: { color: 'orange' },
             headerStyle: { backgroundColor: '#4a4a4a', },
-          }} SearchBar> */}
+            headerShown:false,
+          }} SearchBar>
           <Stack.Screen name="Jumia home" component={ShowProducts} />
           <Stack.Screen name="category" component={Cateqory} />
-          {/* <Stack.Screen name="cart" component={Cart} /> */}
-          <Stack.Screen name="details" component={Details} styles={styles.sec} />
+          <Stack.Screen name="cart" component={Cart} />
+          <Stack.Screen name="details" component={Details} styles={styles.sec}  />
 
-        {/* </Stack.Navigator> */}
+        </Stack.Navigator>
 
       </NavigationContainer>
 
-      <NavigationContainer>
-        <Navbar />
-      </NavigationContainer>
+      {/* <NavigationContainer>
+      <Navbar/> 
+    </NavigationContainer>   */}
     </NativeBaseProvider>
 
 

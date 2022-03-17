@@ -87,6 +87,9 @@ const showProducts = ({ navigation }) => {
         return(
 
           <Center>
+            <View style={{position:'sticky', zIndex:5, top: 0, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
+<Text>Centered text</Text>
+</View>
             {console.log(category)}
             <Input
               style={styles.textinput}
