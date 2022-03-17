@@ -83,8 +83,6 @@ const showProducts = ({ navigation }) => {
       setsearch(text)
     }
   }
-
-
   if (FilterDocs) {
     return (
 

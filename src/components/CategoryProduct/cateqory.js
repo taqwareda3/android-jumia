@@ -91,7 +91,6 @@ const Cateqory = ({ route, navigation }) => {
         </View>
      <Center>
           
-          {/* {console.log(product)} */}
           <Input
         style={styles.textinput}
         value={search}
