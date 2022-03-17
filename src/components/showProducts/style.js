@@ -10,6 +10,31 @@ export const styles = StyleSheet.create(
           borderColor:'#ffac1c',
           backgroundColor:'white' 
         },
+        textinput:{
+
+            height:10,
+
+         
+
+            borderRadius:12,
+
+          },
+
+          inputview:{
+
+              width:'70%',
+
+              borderColor:'#ffac1c',
+
+              backgroundColor:'white',
+
+              borderRadius:12,
+
+              marginLeft:8,
+
+             
+
+          },
         listTab:{
             flex:1,
            backgroundColor:'#ffac1c',

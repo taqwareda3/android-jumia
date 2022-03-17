@@ -14,7 +14,8 @@ import {
   View,
   Box,
   HStack,
-  Input
+  Input,
+  
 } from "native-base";
 import { styles } from "./style";
 import { Icon } from "react-native-elements";
@@ -24,7 +25,7 @@ const showProducts = ({ navigation }) => {
   const [category, setCategory] = useState([]);
   const [FilterDocs, setFilterDocs] = useState([]);
   const [search, setsearch] = useState('');
-  
+
 
   const getProduct = () => {
     const productRef = collection(db, "Products");
@@ -81,44 +82,56 @@ const showProducts = ({ navigation }) => {
       setsearch(text)
     }
   }
- 
 
-      if(FilterDocs){
-        return(
 
-          <Center>
-            <View style={{position:'sticky', zIndex:5, top: 0, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems: 'center'}}>
-<Text>Centered text</Text>
-</View>
-            {console.log(category)}
+  if (FilterDocs) {
+    return (
+
+      <ScrollView  stickyHeaderIndices={[0]}>
+        <View style={{ position: 'absolute',width:'100',display:'block', paddingTop: 40, zIndex: 4, backgroundColor: 'orange', paddingBottom: 10, }}>
+
+          <View style={styles.inputview}>
+
             <Input
               style={styles.textinput}
               value={search}
               placeholder="Search Here"
-      
+
               onChangeText={(text) => filterSearch(text)}
             />
-      
-      
-            <FlatList
-            
-            numColumns={3}
-            data={category}
-            renderItem={({ item }) => (
-             <TouchableHighlight
-             style={styles.btnTab}
-                onPress={() => {
-                  navigation.navigate('category', {
-                    id: item.id,
-                    Category:item.name
-                  });
-                } }
-              >
-             <Text>{item.name}</Text>
-              </TouchableHighlight>
-            )}
-            />
-            {/* <View style={styles.listTab}>
+
+          </View>
+
+
+
+          <Text style={styles.sec}>Test</Text>
+
+
+
+        </View>
+        {console.log(category)}
+
+
+
+        <FlatList
+
+          numColumns={3}
+          data={category}
+          renderItem={({ item }) => (
+            <TouchableHighlight
+              style={styles.btnTab}
+              onPress={() => {
+                navigation.navigate('category', {
+                  id: item.id,
+                  Category: item.name
+                });
+              }}
+            >
+              <Text>{item.name}</Text>
+            </TouchableHighlight>
+          )}
+        />
+        {/* <View style={styles.listTab}>
               {
                 category.map(e=>{
                   <TouchableOpacity style={styles.btnTab}>
@@ -128,57 +141,57 @@ const showProducts = ({ navigation }) => {
               }
              
             </View> */}
-            <FlatList
-              numColumns={2}
-              style={styles.main}
-              data={FilterDocs}
-              renderItem={({ item }) => (
-                <TouchableHighlight
-                  onPress={() => {
-                    navigation.navigate('details', {
-                      id: item.id,
-                      img: item.Image,
-                      ...item,
-      
-                    })
-                  }}
-                >
-                  <Box style={styles.prod}>
-                    <View style={styles.flow}>
-                      <Icon
-                        name="star-outline"
-                        type="ionicon"
-                        style={styles.font}
-                        size={23}
-                        color={"#fcca03"}
-                      />
-                    </View>
-                    <Image
-                      source={{ uri: item.Image }}
-                      style={styles.img}
-      
-                    />
-                    <Text style={styles.title}>{item.Name.toUpperCase()}</Text>
-                    <View style={styles.rates}>
-                      <Text style={styles.price}>{`Price: ${item.Price} EGP`}</Text>
-                    </View>
-                  </Box>
-                </TouchableHighlight>
-              )}
-            />
-          </Center>
-      
-        );
-      }
+        <FlatList
+          numColumns={2}
+          style={styles.main}
+          data={FilterDocs}
+          renderItem={({ item }) => (
+            <TouchableHighlight
+              onPress={() => {
+                navigation.navigate('details', {
+                  id: item.id,
+                  img: item.Image,
+                  ...item,
+
+                })
+              }}
+            >
+              <Box style={styles.prod}>
+                <View style={styles.flow}>
+                  <Icon
+                    name="star-outline"
+                    type="ionicon"
+                    style={styles.font}
+                    size={23}
+                    color={"#fcca03"}
+                  />
+                </View>
+                <Image
+                  source={{ uri: item.Image }}
+                  style={styles.img}
+
+                />
+                <Text style={styles.title}>{item.Name.toUpperCase()}</Text>
+                <View style={styles.rates}>
+                  <Text style={styles.price}>{`Price: ${item.Price} EGP`}</Text>
+                </View>
+              </Box>
+            </TouchableHighlight>
+          )}
+        />
+      </ScrollView>
+
+    );
+  }
 
 
 
   return <HStack justifyContent="center" marginTop={50} space={2} alignItems="center">
-  <Spinner accessibilityLabel="Loading posts" />
-  <Heading color="black" fontSize="md">
-    Loading
-  </Heading>
-</HStack>;
+    <Spinner accessibilityLabel="Loading posts" />
+    <Heading color="black" fontSize="md">
+      Loading
+    </Heading>
+  </HStack>;
 };
 
 export default showProducts;
