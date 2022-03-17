@@ -15,7 +15,7 @@ import {
   Box,
   HStack,
   Input,
-  
+
 } from "native-base";
 import { styles } from "./style";
 import { Icon } from "react-native-elements";
@@ -87,50 +87,55 @@ const showProducts = ({ navigation }) => {
   if (FilterDocs) {
     return (
 
-      <ScrollView  stickyHeaderIndices={[0]}>
-        <View style={{ position: 'absolute',width:'100',display:'block', paddingTop: 40, zIndex: 4, backgroundColor: 'orange', paddingBottom: 10, }}>
+      <ScrollView stickyHeaderIndices={[0]}>
+           <View style={{backgroundColor:'black'}}>
+           <Text style={styles.sec}>Test</Text>
+           </View>
+        <View style={{ position: 'sticky', width: '100', display: 'flex', flexDirection: 'column', paddingTop: 40, zIndex: 4, backgroundColor: 'orange', paddingBottom: 10, }}>
 
-          <View style={styles.inputview}>
+          <Center>
+            <View style={styles.inputview}>
 
-            <Input
-              style={styles.textinput}
-              value={search}
-              placeholder="Search Here"
+              <Input
+                style={styles.textinput}
+                value={search}
+                placeholder="Search Here"
 
-              onChangeText={(text) => filterSearch(text)}
-            />
+                onChangeText={(text) => filterSearch(text)}
+              />
 
-          </View>
+            </View>
 
-
-
-          <Text style={styles.sec}>Test</Text>
+          </Center>
 
 
+      
+
+          <FlatList
+
+            numColumns={3}
+            data={category}
+            renderItem={({ item }) => (
+              <TouchableHighlight
+                style={styles.btnTab}
+                onPress={() => {
+                  navigation.navigate('category', {
+                    id: item.id,
+                    Category: item.name
+                  });
+                }}
+              >
+                <Text>{item.name}</Text>
+              </TouchableHighlight>
+            )}
+          />
 
         </View>
         {console.log(category)}
 
 
 
-        <FlatList
 
-          numColumns={3}
-          data={category}
-          renderItem={({ item }) => (
-            <TouchableHighlight
-              style={styles.btnTab}
-              onPress={() => {
-                navigation.navigate('category', {
-                  id: item.id,
-                  Category: item.name
-                });
-              }}
-            >
-              <Text>{item.name}</Text>
-            </TouchableHighlight>
-          )}
-        />
         {/* <View style={styles.listTab}>
               {
                 category.map(e=>{
