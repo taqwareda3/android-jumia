@@ -2,6 +2,7 @@ import { async } from "@firebase/util";
 import { collection, doc, getDocs } from "firebase/firestore";
 import React, { useState, useEffect } from "react";
 import { db } from "../../../core/config";
+import { Button } from "native-base";
 import { Text, TouchableHighlight, TouchableOpacity } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import {
@@ -88,9 +89,28 @@ const showProducts = ({ navigation }) => {
     return (
 
       <ScrollView stickyHeaderIndices={[0]}>
-           <View style={{backgroundColor:'black'}}>
-           <Text style={styles.sec}>Test</Text>
-           </View>
+        <View style={{ backgroundColor: 'orange' }}>
+         
+       
+          <TouchableHighlight
+                style={{width:"100%",textAlign:"center",fontWight:900,fontSize:100,
+              borderRadius:10 }}
+                onPress={() => {
+                  navigation.navigate('cart' )
+                }}
+              >
+                <Text>CART ITEMS</Text>
+              </TouchableHighlight>
+              <TouchableHighlight
+                style={{width:"100%",textAlign:"center",fontWight:900,fontSize:100,
+                borderRadius:10 }}
+                onPress={() => {
+                  navigation.navigate('Jumia home' )
+                }}
+              >
+                <Text>Home</Text>
+              </TouchableHighlight>
+        </View>
         <View style={{ position: 'sticky', width: '100', display: 'flex', flexDirection: 'column', paddingTop: 40, zIndex: 4, backgroundColor: 'orange', paddingBottom: 10, }}>
 
           <Center>
@@ -109,7 +129,7 @@ const showProducts = ({ navigation }) => {
           </Center>
 
 
-      
+
 
           <FlatList
 

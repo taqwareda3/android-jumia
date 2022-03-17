@@ -1,10 +1,11 @@
 import { Text } from "react-native";
-import { Box, HStack, View, VStack, Spinner, Center, Container, Button, TouchableHighlight, ScrollView } from 'native-base';
+import { Box, HStack, View, VStack, Spinner, Center, Container, Button, ScrollView } from 'native-base';
 import { Image } from "native-base";
 import { styles } from "../showProducts/style";
 import { Icon } from "react-native-elements";
 import { useContext, useEffect } from "react";
 import { db } from "../../../core/config";
+import { TouchableHighlight, TouchableOpacity } from "react-native";
 import { addDoc, collection, doc, getDocs, setDoc } from "firebase/firestore"
 const Details = ({ route, navigation }) => {
      const { id, img, Name, Price, Category, Description, Quantity, Rank } = route.params;
@@ -41,6 +42,32 @@ const Details = ({ route, navigation }) => {
        
     </View> */}
           <ScrollView>
+               <View style={{ backgroundColor: 'orange' }}>
+
+
+                    <TouchableHighlight
+                         style={{
+                              width: "100%", textAlign: "center", fontWight: 900, fontSize: 100,
+                              borderRadius: 10
+                         }}
+                         onPress={() => {
+                              navigation.navigate('cart')
+                         }}
+                    >
+                         <Text>CART ITEMS</Text>
+                    </TouchableHighlight>
+                    <TouchableHighlight
+                         style={{
+                              width: "100%", textAlign: "center", fontWight: 900, fontSize: 100,
+                              borderRadius: 10
+                         }}
+                         onPress={() => {
+                              navigation.navigate('Jumia home')
+                         }}
+                    >
+                         <Text>Home</Text>
+                    </TouchableHighlight>
+               </View>
                <VStack>
                     <View style={{ position: 'sticky', width: '100', display: 'flex', flexDirection: 'column', paddingTop: 40, zIndex: 4, backgroundColor: 'orange', paddingBottom: 10, }}>
 
@@ -53,7 +80,6 @@ const Details = ({ route, navigation }) => {
                          </Center>
 
 
-                         <Text style={styles.sec}>Test</Text>
 
 
                     </View>

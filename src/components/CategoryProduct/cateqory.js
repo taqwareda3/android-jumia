@@ -14,7 +14,8 @@ import {
      View,
      Box,
      HStack,
-     Input
+     Input,
+     Container
 } from "native-base";
 import { styles } from "../showProducts/style";
 import { Icon } from "react-native-elements";
@@ -64,7 +65,32 @@ const Cateqory = ({ route, navigation }) => {
           }
         }
     if(product){
-     return (<Center>
+     return (
+          <>
+          <View style={{ backgroundColor: 'orange' }}>
+         
+       
+          <TouchableHighlight
+                style={{width:"100%",textAlign:"center",fontWight:900,fontSize:100,
+              borderRadius:10 }}
+                onPress={() => {
+                  navigation.navigate('cart' )
+                }}
+              >
+                <Text>CART ITEMS</Text>
+              </TouchableHighlight>
+              <TouchableHighlight
+                style={{width:"100%",textAlign:"center",fontWight:900,fontSize:100,
+                borderRadius:10 }}
+                onPress={() => {
+                  navigation.navigate(' ' )
+                }}
+              >
+                <Text>Home</Text>
+              </TouchableHighlight>
+        </View>
+     <Center>
+          
           {/* {console.log(product)} */}
           <Input
         style={styles.textinput}
@@ -111,7 +137,9 @@ const Cateqory = ({ route, navigation }) => {
                     </TouchableHighlight>
                )}
           />
-     </Center>)
+     </Center>
+     </>)
+  
     };
 
      
@@ -121,6 +149,7 @@ const Cateqory = ({ route, navigation }) => {
     Loading
   </Heading>
 </HStack>;
+
 }
 
 export default Cateqory;

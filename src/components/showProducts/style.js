@@ -45,7 +45,8 @@ export const styles = StyleSheet.create(
        flexDirection:'row',
        borderWidth:0.5,
        borderColor:'#ffac1c',
-       justifyContent:'center'
+       justifyContent:'center',
+
         },
         img:{
             width:100,
@@ -134,12 +135,25 @@ export const styles = StyleSheet.create(
         },
         addbtn:{
             backgroundColor:'#ffac1c',
-            color:'#fff'
+            color:'#fff',
+            marginTop:3,
+            padding:3
         },
         brdr:{
             borderBottomWidth:15,
             borderColor:'#ffac1c'
-        }
+        },
+        subtotalBtn:{
+
+            backgroundColor:'#ffac1c',
+    
+             color:"#fff",
+    
+             padding:10,
+    
+             margin:2
+    
+            }
      
     }
 )
