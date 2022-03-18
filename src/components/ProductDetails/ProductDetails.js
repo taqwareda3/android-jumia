@@ -10,7 +10,7 @@ import { addDoc, collection, doc, getDocs, setDoc } from "firebase/firestore"
 const Details = ({ route, navigation }) => {
      const { id, img, Name, Price, Category, Description, Quantity, Rank } = route.params;
      var flag = true;
-     const add = () => {
+     const add = ({navigation}) => {
 
           flag = false
 
@@ -47,8 +47,8 @@ const Details = ({ route, navigation }) => {
 
                     <TouchableHighlight
                          style={{
-                              width: "100%", textAlign: "center", fontWight: 900, fontSize: 100,
-                              borderRadius: 10
+                              width:"100%",textAlign:"center",fontWight:900,fontSize:100,
+                              borderRadius:10, paddingTop:30
                          }}
                          onPress={() => {
                               navigation.navigate('cart')
@@ -69,7 +69,7 @@ const Details = ({ route, navigation }) => {
                     </TouchableHighlight>
                </View>
                <VStack>
-                    <View style={{ position: 'sticky', width: '100', display: 'flex', flexDirection: 'column', paddingTop: 40, zIndex: 4, backgroundColor: 'orange', paddingBottom: 10, }}>
+                    <View style={{ display: 'flex', flexDirection: 'column', zIndex: 4, backgroundColor: 'orange', paddingBottom: 10 }}>
 
                          <Center>
                               <View style={styles.inputview}>
