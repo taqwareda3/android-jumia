@@ -72,7 +72,7 @@ const Cateqory = ({ route, navigation }) => {
        
           <TouchableHighlight
                 style={{width:"100%",textAlign:"center",fontWight:900,fontSize:100,
-              borderRadius:10 }}
+                borderRadius:10, paddingTop:30 }}
                 onPress={() => {
                   navigation.navigate('cart' )
                 }}
@@ -83,7 +83,7 @@ const Cateqory = ({ route, navigation }) => {
                 style={{width:"100%",textAlign:"center",fontWight:900,fontSize:100,
                 borderRadius:10 }}
                 onPress={() => {
-                  navigation.navigate(' ' )
+                  navigation.navigate('Jumia home' )
                 }}
               >
                 <Text>Home</Text>

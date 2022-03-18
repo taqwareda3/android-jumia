@@ -41,7 +41,7 @@ export const styles = StyleSheet.create(
           
         },
         btnTab:{
-       width:Dimensions.get('window').width/3.5,
+       width:Dimensions.get('window').width/3.3,
        flexDirection:'row',
        borderWidth:0.5,
        borderColor:'#ffac1c',
@@ -153,6 +153,10 @@ export const styles = StyleSheet.create(
     
              margin:2
     
+            },
+            categ:{
+                paddingTop:10,
+                paddingLeft:10
             }
      
     }

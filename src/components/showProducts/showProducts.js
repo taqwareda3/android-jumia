@@ -94,7 +94,7 @@ const showProducts = ({ navigation }) => {
        
           <TouchableHighlight
                 style={{width:"100%",textAlign:"center",fontWight:900,fontSize:100,
-              borderRadius:10 }}
+              borderRadius:10, paddingTop:30 }}
                 onPress={() => {
                   navigation.navigate('cart' )
                 }}
@@ -103,7 +103,7 @@ const showProducts = ({ navigation }) => {
               </TouchableHighlight>
               <TouchableHighlight
                 style={{width:"100%",textAlign:"center",fontWight:900,fontSize:100,
-                borderRadius:10 }}
+                borderRadius:10}}
                 onPress={() => {
                   navigation.navigate('Jumia home' )
                 }}
@@ -111,7 +111,7 @@ const showProducts = ({ navigation }) => {
                 <Text>Home</Text>
               </TouchableHighlight>
         </View>
-        <View style={{ position: 'sticky', width: '100', display: 'flex', flexDirection: 'column', paddingTop: 40, zIndex: 4, backgroundColor: 'orange', paddingBottom: 10, }}>
+        <View style={{display: 'flex', flexDirection: 'column', zIndex: 4, backgroundColor: 'orange', paddingBottom: 10}}>
 
           <Center>
             <View style={styles.inputview}>
@@ -128,11 +128,8 @@ const showProducts = ({ navigation }) => {
 
           </Center>
 
-
-
-
           <FlatList
-
+            style={styles.categ}
             numColumns={3}
             data={category}
             renderItem={({ item }) => (

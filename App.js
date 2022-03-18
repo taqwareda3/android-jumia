@@ -8,6 +8,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Cateqory from "./src/components/CategoryProduct/cateqory";
 import Cart from "./src/components/Cart/cart";
 import Navbar from "./src/components/NavigationBar/navbar";
+import Login from './src/components/login/login'
+import Signup from './src/components/signUp/signUp'
 const Stack = createNativeStackNavigator();
 export default function App() {
 
@@ -20,16 +22,18 @@ export default function App() {
           activeColor="#f0edf6"
           inactiveColor="#3e2465"
           barStyle={{ backgroundColor: "#694fad" }}
-          initialRouteName="Jumia home" screenOptions={{
+          initialRouteName="Login" screenOptions={{
             headerTitleStyle: { color: 'orange' },
             headerStyle: { backgroundColor: '#4a4a4a', },
             headerShown:false,
-          }} SearchBar>
+          }} >
+
           <Stack.Screen name="Jumia home" component={ShowProducts} />
           <Stack.Screen name="category" component={Cateqory} />
           <Stack.Screen name="cart" component={Cart} />
           <Stack.Screen name="details" component={Details} styles={styles.sec}  />
-
+          <Stack.Screen name="Login" component={Login} />
+          <Stack.Screen name="Signup" component={Signup} /> 
         </Stack.Navigator>
 
       </NavigationContainer>

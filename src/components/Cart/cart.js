@@ -21,7 +21,7 @@ import {
      Button
 } from "native-base";
 import { styles } from "../showProducts/style";
-const Cart = () => {
+const Cart = ({navigation}) => {
      const [cart, setCart] = useState([]);
      const getCartData = () => {
           const cartRef = collection(db, "users/5xKF4exe3kpuSXTS4lc4/cart");
@@ -126,14 +126,6 @@ const Cart = () => {
           })
 
 
-
-
-
-
-
-
-
-
      }
 
      useEffect(() => {
@@ -146,8 +138,8 @@ const Cart = () => {
 
                     <TouchableHighlight
                          style={{
-                              width: "100%", textAlign: "center", fontWight: 900, fontSize: 100,
-                              borderRadius: 10
+                              width:"100%",textAlign:"center",fontWight:900,fontSize:100,
+              borderRadius:10, paddingTop:30
                          }}
                          onPress={() => {
                               navigation.navigate('cart')
@@ -157,8 +149,7 @@ const Cart = () => {
                     </TouchableHighlight>
                     <TouchableHighlight
                          style={{
-                              width: "100%", textAlign: "center", fontWight: 900, fontSize: 100,
-                              borderRadius: 10
+                              display: 'flex', flexDirection: 'column', zIndex: 4, backgroundColor: 'orange', paddingBottom: 10
                          }}
                          onPress={() => {
                               navigation.navigate('Jumia home')
